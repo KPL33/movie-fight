@@ -1,0 +1,27 @@
+#interaction {
+    background-color: var(--veryDark);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+/* #go-back, #submit {
+    display: flex;
+} */
+
+.btn {
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light);
+    font-size: 36px;
+    color: var(--veryDark);
+    width: auto;
+    padding: 10px;
+}
+
+.errors h2 {
+    color: var(--accent);
+}

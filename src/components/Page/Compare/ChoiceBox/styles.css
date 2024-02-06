@@ -1,0 +1,41 @@
+.spotlight, .poster {
+    width: 400px;
+    height: 600px;
+    margin: 20px 0;
+}
+
+/* #compare :nth-of-type(2) .spotlight {
+    transform: scaleX(-1);
+}
+
+#compare :nth-of-type(2) .poster {
+  transform: none; /* Reset poster 2, so that it's not backwards
+} */
+
+::placeholder {
+    color: var(--base);
+}
+
+.input {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 24px;
+    background-color: var(--light);
+}
+
+.results {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: var(--light);
+}
+
+.results span {
+    color: var(--accent);
+    font-size: 50px;
+}
+
+.score-image {
+    width: 10%;
+    height: auto;
+}

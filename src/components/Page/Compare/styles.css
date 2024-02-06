@@ -1,0 +1,16 @@
+#compare {
+    justify-content: center;
+}
+
+#compare, .choice-box {
+    display: flex;
+    align-items: center;
+}
+
+.choice-box {
+    flex-direction: column;
+    width: 600px;
+    height: 1000px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}

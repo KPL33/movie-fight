@@ -1,0 +1,6 @@
+#hof {
+    /* change height to auto */
+    height: 200px;
+    background: linear-gradient(45deg, var(--veryDark), var(--base), var(--veryDark));
+    width: 100%;
+}
