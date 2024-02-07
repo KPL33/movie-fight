@@ -1,19 +1,22 @@
 main {
-    background: var(--veryDark);
-    height: auto;
-    width: 100%;
-    margin: 0 10px;
+  background: var(--veryDark);
+  height: auto;
+  width: 100%;
+  margin: 0 10px;
 }
 
 #message {
-    color:var(--light);
-    text-align: center;
-    margin: 10px;
+  color: var(--light);
+  text-align: center;
+  margin: 10px;
+  font-family: "Limelight", sans-serif;
+  letter-spacing: 0.05em;
 }
 
-#compare, #trailer {
-    background: linear-gradient(45deg, var(--base), var(--veryDark), var(--base));
-    height: 100%;
-    width: 100%;
-    padding-bottom: 30px;
+#compare,
+#trailer {
+  background: linear-gradient(45deg, var(--base), var(--veryDark), var(--base));
+  height: 100%;
+  width: 100%;
+  padding-bottom: 30px;
 }

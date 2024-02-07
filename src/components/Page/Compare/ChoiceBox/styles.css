@@ -1,7 +1,8 @@
-.spotlight, .poster {
-    width: 400px;
-    height: 600px;
-    margin: 20px 0;
+.spotlight,
+.poster {
+  width: 400px;
+  height: 600px;
+  margin: 20px 0;
 }
 
 /* #compare :nth-of-type(2) .spotlight {
@@ -13,29 +14,40 @@
 } */
 
 ::placeholder {
-    color: var(--base);
+  color: var(--base);
 }
 
 .input {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 24px;
-    background-color: var(--light);
+  text-align: center;
+  margin-top: 15px;
+  font-size: 24px;
+  background-color: var(--light);
+}
+
+::placeholder,
+.input {
+  font-family: "Recursive", sans-serif;
 }
 
 .results {
-    margin-top: 10px;
-    font-size: 24px;
-    text-align: center;
-    color: var(--light);
+  margin-top: 10px;
+  font-size: 24px;
+  text-align: center;
+  color: var(--light);
+  font-family: "Recursive", sans-serif;
 }
 
 .results span {
-    color: var(--accent);
-    font-size: 50px;
+  color: var(--accent);
+  font-size: 50px;
+  font-family: "Protest Revolution", sans-serif;
+}
+
+.results h3 {
+  color: var(--light);
 }
 
 .score-image {
-    width: 10%;
-    height: auto;
+  width: 10%;
+  height: auto;
 }
