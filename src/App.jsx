@@ -13,7 +13,7 @@ const App = () => {
         <Header />
         <Page />
         <Interaction />
-        <Hof />
+        {/* <Hof /> */}
         <Footer />
       </>
     </AppProvider>
