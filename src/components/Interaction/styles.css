@@ -50,7 +50,7 @@
   width: 50px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 780px) {
   .errors h2 {
     font-size: 6vw; /* Adjust the font size based on your preference */
   }

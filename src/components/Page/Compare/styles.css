@@ -60,7 +60,7 @@
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 780px) {
   #compare .choice-box:last-child {
     flex-direction: column-reverse;
   }

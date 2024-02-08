@@ -86,13 +86,18 @@ footer {
   height: 20%;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 780px) {
   #madewith p {
     font-size: 3vw;
   }
 
   #react-logo {
-    top: 7px;
+    top: 15px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  #react-logo { top: 10px;  
   }
 }
 
