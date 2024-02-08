@@ -40,6 +40,7 @@
 }
 
 .results h3 {
+  font-size: 2vw;
   color: var(--light);
   word-wrap: break-word;
 }
@@ -65,9 +66,6 @@ h3.movie-info {
 }
 
 @media screen and (max-width: 1100px) {
-  .results span {
-    font-size: 6vw;
-  }
 
   .movie-info {
     margin-bottom: 0px;
@@ -75,6 +73,14 @@ h3.movie-info {
 
   .input {
     margin: 20px;
+  }
+
+  .results span {
+    font-size: 6vw;
+  }
+
+  .results h3 {
+    font-size: 4vw;
   }
 }
 
