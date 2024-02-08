@@ -1,43 +1,28 @@
-# <span style="color: yellow;">***Kevin Lewis' </span><span style="color: white;">"React"</span> <span style="color: yellow;">Portfolio***</span>
+# <span style="color: yellow;">***Movie Fight***</span>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 </br>
 
 ## Overview
-This portfolio is intended to showcase my work as a Full-Stack Developer and provide a resume and contact information for prospective employers.
-
+Choose 2 movies and we'll compare Rotten Tomatoes scores to help you decide what to watch!
 </br>
 
 ## Live Application Link
-To view this portfolio, visit https://vermillion-faloodeh-87eaaf.netlify.app/
-
+To use this app, visit https://rt-movie-fight.netlify.app/
 </br>
 
 ## Screen-Caps of the Application
-![Home Page](./src/assets/example1.png)
+![Home Page](./src/assets/mf.jpg)
 ##
-</br>
-
-![Projects Page](./src/assets/example2.png)
-##
-</br>
-
-![Contact Page](./src/assets/example3.png)
-##
-</br>
 
 </br>
-
 ## Contributors To This Application
 Kevin Lewis
 
 </br>
-
 # <span style="color: lightgreen;">***Thank you for using this App!***</span>
-
 </br>
 
 ## Questions? Contact the Developer on GitHub... 
 KPL33
 ## ...or via Email
-kevinsname2003@yahoo.com
+kevdev@myyahoo.com
