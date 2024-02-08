@@ -1,17 +1,75 @@
 #compare {
   justify-content: center;
+  width: 100%;
+  align-items: flex-start;
+  height: auto;
 }
 
 #compare,
 .choice-box {
   display: flex;
-  align-items: center;
+  margin: 30px 0;
 }
 
 .choice-box {
   flex-direction: column;
   width: 600px;
-  height: 800px;
-  margin-top: 30px;
-  padding-bottom: 50px;
+  align-items: center;
+}
+
+.choice-box img {
+  border-radius: 0.5em;
+}
+
+.versus {
+  font-family: "Protest Revolution", sans-serif;
+  color: var(--accent);
+  font-size: 100px;
+  margin: 250px 30px 0px 30px;
+  transform: rotate(-15deg);
+}
+
+@media screen and (max-width: 1100px) {
+  #compare {
+    flex-direction: column;
+    margin: 0px;
+    align-items: center;
+    padding: 0px;
+    height: 100%;
+  }
+
+  .choice-box {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .choice-box {
+    padding: 0px 20px;
+  }
+
+  #compare .choice-box:last-child {
+    flex-direction: row-reverse;
+  }
+
+  .versus {
+    margin: 20px 0px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #compare .choice-box:last-child {
+    flex-direction: column-reverse;
+  }
+
+  .choice-box:last-child .movie-info {
+    margin-bottom: 30px; /* Adjust the margin value as needed */
+  }
+
+  .versus {
+    color: var(--light);
+  }
 }

@@ -1,27 +1,21 @@
-.spotlight,
-.poster {
+.spotlight {
   width: 400px;
   height: 600px;
-  margin: 20px 0;
 }
-
-/* #compare :nth-of-type(2) .spotlight {
-    transform: scaleX(-1);
-}
-
-#compare :nth-of-type(2) .poster {
-  transform: none; /* Reset poster 2, so that it's not backwards
-} */
 
 ::placeholder {
   color: var(--base);
 }
 
 .input {
+  border: none;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 24px;
   background-color: var(--light);
+  border-radius: 0.25em;
+  height: 40px;
+  max-width: 300px;
 }
 
 ::placeholder,
@@ -30,7 +24,8 @@
 }
 
 .results {
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 30px;
   font-size: 24px;
   text-align: center;
   color: var(--light);
@@ -39,15 +34,53 @@
 
 .results span {
   color: var(--accent);
-  font-size: 50px;
+  font-size: 4vw;
   font-family: "Protest Revolution", sans-serif;
+  letter-spacing: var(--letter);
 }
 
 .results h3 {
   color: var(--light);
+  word-wrap: break-word;
+}
+
+.results p {
+  margin-top: 20px;
+}
+
+h3.movie-info {
+  width: auto;
 }
 
 .score-image {
-  width: 10%;
+  width: 50px;
   height: auto;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+#bad {
+  width: 72px;
+}
+
+@media screen and (max-width: 1100px) {
+  .results span {
+    font-size: 6vw;
+  }
+
+  .movie-info {
+    margin-bottom: 0px;
+  }
+
+  .input {
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .spotlight {
+    width: 300px;
+    height: auto;
+  }
 }

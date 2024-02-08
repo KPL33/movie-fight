@@ -56,7 +56,7 @@ const Footer = () => {
       </div>
       <div id="madewith">
         <p>
-          This site made with &nbsp; <img id="react-logo" src={reactLogo} />{" "}
+          This site made with &nbsp; <img id="react-logo" src={reactLogo} />
           &nbsp; by Kevin Lewis
         </p>
       </div>

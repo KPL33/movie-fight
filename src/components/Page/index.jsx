@@ -6,8 +6,11 @@ const Page = () => {
   return (
     <main>
       <h1 id="message">
-        Choose your entertainment combatants and we&apos;ll compare their Rotten
-        Tomatoes scores head-to-head!
+        Choose your entertainment combatants and <br />
+        <span className="inst">click the TICKET below! </span>
+        <br />
+        We&apos;ll compare Rotten Tomatoes scores for your choices,
+        head-to-head!
       </h1>
       <Compare />
       {/* <Trailer /> */}

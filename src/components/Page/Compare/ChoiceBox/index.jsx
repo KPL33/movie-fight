@@ -92,6 +92,7 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
       <Poster src={posterUrl || posterSrc} />
       {isSubmitVisible && (
         <input
+        
           className="input"
           id={inputId}
           type="text"
@@ -109,12 +110,12 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
             <h3 className="movie-info">
               <span>{movieName}</span>
               <br />
-              <p>has a Rotten Tomatoes Score of: </p>
+              <p>Score: </p>
               <span>{rottenTomatoesScore}%</span>
               {rottenTomatoesScore >= 60 ? (
                 <img src={good} alt="Good" className="score-image" />
               ) : (
-                <img src={bad} alt="Bad" className="score-image" />
+                <img src={bad} alt="Bad" className="score-image" id="bad" />
               )}
             </h3>
           </div>

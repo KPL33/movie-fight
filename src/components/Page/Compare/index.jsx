@@ -13,6 +13,7 @@ const Compare = () => {
         inputPlaceholder="First Choice"
         posterSrc={spotlights.spotlight1}
       />
+      <h1 className="versus">v.s.</h1>
       <ChoiceBox
         key="inputTwo"
         inputId="inputTwo"

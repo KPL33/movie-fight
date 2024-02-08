@@ -1,4 +1,4 @@
-import banner from '../../assets/MFC_Banner.jpg';
+import banner from "../../assets/Movie-Fight_Banner.jpg";
 import './styles.css';
 
 const Header = () => {

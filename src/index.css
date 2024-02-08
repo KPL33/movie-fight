@@ -7,7 +7,7 @@
 }
 
 #root {
-  background-color: var(--veryDark);
+  background-color: #000;
   min-height: 100vh;
   min-width: 100vw;
   width: 100%;
@@ -17,10 +17,9 @@
 }
 
 :root {
-  --veryDark: #2B114E;
-  --base: #742ED0;
-  --light: #F0E8FA;
-  --accent: #FeF602;
+  --veryDark: #2b114e;
+  --base: #742ed0;
+  --light: #f0e8fa;
+  --accent: #fef602;
+  --letter: 0.1em;
 }
-
-

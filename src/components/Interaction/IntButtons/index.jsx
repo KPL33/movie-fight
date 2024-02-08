@@ -1,5 +1,7 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../../context/AppContext";
+import submit from "../../../assets/submit.jpg";
+import goback from "../../../assets/goback.jpg";
 
 const IntButtons = () => {
   const {
@@ -33,21 +35,21 @@ const IntButtons = () => {
   return (
     <div>
       <button
-        className="btn"
+        className="int-btn"
         id="submit"
         onClick={() => handleButtonClick("submit")}
         style={{ display: submitClicked || errorPresent ? "none" : "flex" }}
       >
-        Fight for my attention!
+        <img src={submit} />
       </button>
 
       <button
-        className="btn"
+        className="int-btn"
         id="go-back"
         onClick={() => handleButtonClick("goBack")}
         style={{ display: submitClicked && !errorPresent ? "flex" : "none" }}
       >
-        Click to compare new movies!
+        <img src={goback} />
       </button>
     </div>
   );

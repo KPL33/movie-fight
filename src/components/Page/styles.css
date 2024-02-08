@@ -8,15 +8,20 @@ main {
 #message {
   color: var(--light);
   text-align: center;
-  margin: 10px;
+  margin: 20px;
   font-family: "Limelight", sans-serif;
-  letter-spacing: 0.05em;
+  font-size: 3vw;
+  letter-spacing: var(--letter);
 }
 
 #compare,
 #trailer {
   background: linear-gradient(45deg, var(--base), var(--veryDark), var(--base));
-  height: 100%;
   width: 100%;
-  padding-bottom: 30px;
+}
+
+.inst {
+  color: var(--accent);
+  font-family: "Protest Revolution", sans-serif;
+  font-size: 1.5em;
 }
