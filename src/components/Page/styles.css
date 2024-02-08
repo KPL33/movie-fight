@@ -10,7 +10,7 @@ main {
   text-align: center;
   margin: 20px;
   font-family: "Limelight", sans-serif;
-  font-size: 3vw;
+  font-size: 30px;
   letter-spacing: var(--letter);
 }
 
@@ -28,6 +28,6 @@ main {
 
 @media screen and (max-width: 475px) {
   #message {
-    font-size: 4vw;
+    font-size: 18px;
   }
 }
