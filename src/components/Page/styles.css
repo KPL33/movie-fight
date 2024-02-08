@@ -25,3 +25,9 @@ main {
   font-family: "Protest Revolution", sans-serif;
   font-size: 1.5em;
 }
+
+@media screen and (max-width: 475px) {
+  #message {
+    font-size: 4vw;
+  }
+}
