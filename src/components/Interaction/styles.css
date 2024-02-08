@@ -56,8 +56,8 @@
   }
 }
 
-@media screen and (max-width: 450px) {
-  .int-btn {
-    max-width: 50%;
+@media screen and (max-width: 475px) {
+  #interaction img {
+    width: 300px;
   }
 }

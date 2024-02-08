@@ -78,7 +78,7 @@ h3.movie-info {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 475px) {
   .spotlight {
     width: 300px;
     height: auto;
