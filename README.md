@@ -14,13 +14,12 @@ To use this app, visit https://rt-movie-fight.netlify.app/
 ![Home Page](./src/assets/mf.jpg)
 ##
 
-</br>
 ## Contributors To This Application
 Kevin Lewis
 
 </br>
+
 # <span style="color: lightgreen;">***Thank you for using this App!***</span>
-</br>
 
 ## Questions? Contact the Developer on GitHub... 
 KPL33

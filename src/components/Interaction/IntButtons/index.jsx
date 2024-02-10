@@ -32,6 +32,33 @@ const IntButtons = () => {
     }
   };
 
+  useEffect(() => {
+    // Check if the screen width is less than or equal to 780 pixels
+    const isMobile = window.innerWidth <= 780;
+
+    if (isMobile) {
+      if (submitClicked && !errorPresent) {
+        console.log("Scrolling up...");
+        window.scrollTo({
+          top: window.scrollY - 800,
+          behavior: "smooth",
+        });
+      } else if (
+        errorPresent === "choice-error" ||
+        errorPresent === "dup-error"
+      ) {
+        console.log("Scrolling down...");
+        window.scrollTo({
+          top: document.body.scrollHeight - window.innerHeight,
+          behavior: "smooth",
+        });
+      } else {
+        console.log("No scroll.");
+      }
+    }
+  }, [submitClicked, errorPresent]);
+
+
   return (
     <div>
       <button
@@ -40,7 +67,7 @@ const IntButtons = () => {
         onClick={() => handleButtonClick("submit")}
         style={{ display: submitClicked || errorPresent ? "none" : "flex" }}
       >
-        <img src={submit} />
+        <img src={submit} alt="Submit button" />
       </button>
 
       <button
@@ -49,7 +76,7 @@ const IntButtons = () => {
         onClick={() => handleButtonClick("goBack")}
         style={{ display: submitClicked && !errorPresent ? "flex" : "none" }}
       >
-        <img src={goback} />
+        <img src={goback} alt="Go back button" />
       </button>
     </div>
   );

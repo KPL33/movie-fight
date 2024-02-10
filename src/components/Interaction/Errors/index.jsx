@@ -42,8 +42,7 @@ const Errors = () => {
         <h2 id="blank-error">
           Please be sure to enter 2 titles before trying your search.{" "}
           <i
-            class="em em-upside_down_face"
-            aria-role="presentation"
+            className="em em-upside_down_face"
             aria-label="UPSIDE-DOWN FACE"
           ></i>
         </h2>
@@ -52,11 +51,7 @@ const Errors = () => {
       {errorPresent === "choice-error" && (
         <h2 id="choice-error">
           Data not found. Please try a new search.{" "}
-          <i
-            class="em em-thinking_face"
-            aria-role="presentation"
-            aria-label="THINKING FACE"
-          ></i>
+          <i className="em em-thinking_face" aria-label="THINKING FACE"></i>
         </h2>
       )}
 
@@ -65,8 +60,7 @@ const Errors = () => {
           Please enter different titles in both fields, or maybe just watch that
           movie, since it seems you REALLY want to.
           <i
-            class="em em-stuck_out_tongue_winking_eye"
-            aria-role="presentation"
+            className="em em-stuck_out_tongue_winking_eye"
             aria-label="FACE WITH STUCK-OUT TONGUE AND WINKING EYE"
           ></i>
         </h2>
