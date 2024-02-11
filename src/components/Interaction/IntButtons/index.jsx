@@ -8,9 +8,42 @@ const IntButtons = () => {
     submitClicked,
     setSubmitClicked,
     setGoBackClicked,
+    goBackClicked,
     errorPresent,
     setInputStates,
   } = useContext(AppContext);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // Scroll to the top when the page is about to be unloaded (hard reload)
+      window.scrollTo(0, 0);
+    };
+    //Here
+    // Attach the event listener
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    const scrollDelay = setTimeout(() => {
+      // Scroll to the custom position if goBackClicked or (submitClicked and !errorPresent)
+      if (
+        (goBackClicked || (submitClicked && !errorPresent)) &&
+        window.innerWidth <= 1100
+      ) {
+        const customScrollPosition = window.innerHeight * 0.75;
+        window.scrollTo({
+          top: customScrollPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+
+
+    // Clear the timeout on component unmount
+    return () => {
+      clearTimeout(scrollDelay);
+      // Remove the event listener on component unmount
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [goBackClicked, submitClicked, errorPresent]); // Watch for changes in goBackClicked, submitClicked, and errorPresent
 
   const handleButtonClick = (buttonType) => {
     if (buttonType === "submit") {
@@ -32,33 +65,6 @@ const IntButtons = () => {
     }
   };
 
-  useEffect(() => {
-    // Check if the screen width is less than or equal to 780 pixels
-    const isMobile = window.innerWidth <= 780;
-
-    if (isMobile) {
-      if (submitClicked && !errorPresent) {
-        console.log("Scrolling up...");
-        window.scrollTo({
-          top: window.scrollY - 800,
-          behavior: "smooth",
-        });
-      } else if (
-        errorPresent === "choice-error" ||
-        errorPresent === "dup-error"
-      ) {
-        console.log("Scrolling down...");
-        window.scrollTo({
-          top: document.body.scrollHeight - window.innerHeight,
-          behavior: "smooth",
-        });
-      } else {
-        console.log("No scroll.");
-      }
-    }
-  }, [submitClicked, errorPresent]);
-
-
   return (
     <div>
       <button
@@ -67,7 +73,7 @@ const IntButtons = () => {
         onClick={() => handleButtonClick("submit")}
         style={{ display: submitClicked || errorPresent ? "none" : "flex" }}
       >
-        <img src={submit} alt="Submit button" />
+        <img src={submit} />
       </button>
 
       <button
@@ -76,7 +82,7 @@ const IntButtons = () => {
         onClick={() => handleButtonClick("goBack")}
         style={{ display: submitClicked && !errorPresent ? "flex" : "none" }}
       >
-        <img src={goback} alt="Go back button" />
+        <img src={goback} />
       </button>
     </div>
   );
