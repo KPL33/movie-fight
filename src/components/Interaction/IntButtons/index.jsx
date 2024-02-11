@@ -13,12 +13,14 @@ const IntButtons = () => {
     setInputStates,
   } = useContext(AppContext);
 
+  // ...
+
   useEffect(() => {
     const handleBeforeUnload = () => {
       // Scroll to the top when the page is about to be unloaded (hard reload)
       window.scrollTo(0, 0);
     };
-    //Here
+
     // Attach the event listener
     window.addEventListener("beforeunload", handleBeforeUnload);
 
@@ -28,13 +30,30 @@ const IntButtons = () => {
         (goBackClicked || (submitClicked && !errorPresent)) &&
         window.innerWidth <= 1100
       ) {
-        const customScrollPosition = window.innerHeight * 0.75;
-        window.scrollTo({
-          top: customScrollPosition,
-          behavior: "smooth",
-        });
+        if (!errorPresent) {
+          const customScrollPosition = window.innerHeight * 0.75;
+          window.scrollTo({
+            top: customScrollPosition,
+            behavior: "smooth",
+          });
+        } else {
+          // Scroll to the top (0) when errorPresent is 'blank-error'
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
       }
     }, 100);
+
+    // Scroll to the bottom when errorPresent is 'dup-error' or 'choice-error'
+    if (errorPresent === "dup-error" || errorPresent === "choice-error") {
+      console.log("Scrolling to the bottom...");
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }
 
 
     // Clear the timeout on component unmount
@@ -44,6 +63,8 @@ const IntButtons = () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, [goBackClicked, submitClicked, errorPresent]); // Watch for changes in goBackClicked, submitClicked, and errorPresent
+
+  // ...
 
   const handleButtonClick = (buttonType) => {
     if (buttonType === "submit") {
