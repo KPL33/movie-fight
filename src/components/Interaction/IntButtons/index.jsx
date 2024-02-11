@@ -47,14 +47,14 @@ const IntButtons = () => {
     }, 100);
 
     // Scroll to the bottom when errorPresent is 'dup-error' or 'choice-error'
+    // Scroll to the bottom when errorPresent is 'dup-error' or 'choice-error'
     if (errorPresent === "dup-error" || errorPresent === "choice-error") {
-      console.log("Scrolling to the bottom...");
+      console.log("Scrolling down by 50%...");
       window.scrollTo({
-        top: document.body.scrollHeight,
+        top: window.innerHeight * 0.9, // Change this line
         behavior: "smooth",
       });
     }
-
 
     // Clear the timeout on component unmount
     return () => {
