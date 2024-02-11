@@ -49,9 +49,10 @@ const IntButtons = () => {
     // Scroll to the bottom when errorPresent is 'dup-error' or 'choice-error'
     // Scroll to the bottom when errorPresent is 'dup-error' or 'choice-error'
     if (errorPresent === "dup-error" || errorPresent === "choice-error") {
-      console.log("Scrolling down by 50%...");
-      window.scrollTo({
-        top: window.innerHeight * 0.925, // Change this line
+      console.log("Scrolling down...");
+      const scrollAmount = window.innerHeight * 0.6;
+      window.scrollBy({
+        top: scrollAmount,
         behavior: "smooth",
       });
     }
