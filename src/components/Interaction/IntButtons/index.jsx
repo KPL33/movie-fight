@@ -51,7 +51,7 @@ const IntButtons = () => {
     if (errorPresent === "dup-error" || errorPresent === "choice-error") {
       console.log("Scrolling down by 50%...");
       window.scrollTo({
-        top: window.innerHeight * 0.9, // Change this line
+        top: window.innerHeight * 0.925, // Change this line
         behavior: "smooth",
       });
     }
