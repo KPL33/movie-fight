@@ -3,14 +3,37 @@
   height: 600px;
 }
 
+.movie-list {
+  position: absolute;
+  background-color: var(--light);
+  list-style: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 0.25em;
+  text-align: center;
+  width: 100%;
+  overflow-y: auto; /* Add scroll if needed */
+  z-index: 1;
+  top: 100%; /* Position it directly below the input */
+  left: 0; /* Align it to the left of the container */
+}
+
+.movie-list li {
+  margin: 15px 0;
+}
+
 ::placeholder {
   color: var(--base);
+}
+
+.input-container {
+  position: relative; /* Add this to make movie-list positioned relative to this container */
 }
 
 .input {
   border: none;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px;
   font-size: 24px;
   background-color: var(--light);
   border-radius: 0.25em;
@@ -19,7 +42,8 @@
 }
 
 ::placeholder,
-.input {
+.input,
+.movie-list li {
   font-family: "Recursive", sans-serif;
 }
 
@@ -66,6 +90,13 @@ h3.movie-info {
 }
 
 @media screen and (max-width: 1100px) {
+  .movie-list {
+    font-size: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+  
   .movie-info {
     margin-bottom: 0px;
   }

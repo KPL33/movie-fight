@@ -1,8 +1,7 @@
-// ChoiceBox.js
 import { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useAppContext } from "../../../../context/useAppContext";
-import { omdbFetch } from "../../../../utils/api";
+import { omdbSearch, omdbFetch } from "../../../../utils/api";
 import Poster from "./Poster";
 import good from "../../../../assets/good.svg";
 import bad from "../../../../assets/bad.svg";
@@ -22,56 +21,67 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
   } = useAppContext();
 
   const [inputValue, setInputValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const [movieName, setMovieName] = useState(null);
   const [rottenTomatoesScore, setRottenTomatoesScore] = useState(null);
   const [posterUrl, setPosterUrl] = useState(null);
 
-  const debouncedFetch = useRef(
+  const debouncedSearch = useRef(
     debounce(async (value) => {
       try {
         if (value.trim() === "") {
-          // You can handle this case as needed, for example, reset the Poster
-          setPosterUrl(null);
+          setSearchResults([]);
           return;
         }
-        const fetchedData = await omdbFetch(
-          value,
-          setErrorPresent,
-          setIsMissingData
-        );
-
-        setMovieName(fetchedData.movieName);
-        setRottenTomatoesScore(fetchedData.rottenTomatoesScore);
-        setPosterUrl(fetchedData.posterUrl);
-
-        setInputStates(inputId, {
-          movieName: fetchedData.movieName,
-          rottenTomatoesScore: fetchedData.rottenTomatoesScore,
-          posterUrl: fetchedData.posterUrl,
-          value: value, // Ensure you update the context with the input value
-        });
+        const results = await omdbSearch(value);
+        setSearchResults(results);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error searching movies:", error);
       }
     }, 1000)
   ).current;
 
   const handleInputChange = (value) => {
     setInputValue(value);
-    debouncedFetch(value);
+    debouncedSearch(value);
 
-    // Reset all error and submit button visibility
+    // Reset states when typing
     setSubmitClicked(false);
     setInputStates(inputId, {
       movieName: null,
       rottenTomatoesScore: null,
       posterUrl: null,
-      value: "", // Ensure you update the context with an empty value
+      value: "",
     });
-
-    // Clear all errors
     setIsMissingData(false);
     setErrorPresent(null);
+  };
+
+  const handleMovieSelect = async (movieTitle) => {
+    try {
+      const fetchedData = await omdbFetch(
+        movieTitle,
+        setErrorPresent,
+        setIsMissingData
+      );
+
+      setMovieName(fetchedData.movieName);
+      setRottenTomatoesScore(fetchedData.rottenTomatoesScore);
+      setPosterUrl(fetchedData.posterUrl);
+
+      setInputStates(inputId, {
+        movieName: fetchedData.movieName,
+        rottenTomatoesScore: fetchedData.rottenTomatoesScore,
+        posterUrl: fetchedData.posterUrl,
+        value: movieTitle,
+      });
+
+      // Clear search results after selection
+      setSearchResults([]);
+      setInputValue(movieTitle);
+    } catch (error) {
+      console.error("Error fetching movie details:", error);
+    }
   };
 
   const resetValues = () => {
@@ -90,17 +100,32 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
   return (
     <div className="choice-box">
       <Poster src={posterUrl || posterSrc} />
-      {isSubmitVisible && (
-        <input
-        
-          className="input"
-          id={inputId}
-          type="text"
-          placeholder={inputPlaceholder}
-          value={inputValue}
-          onChange={(e) => handleInputChange(e.target.value)}
-          style={{ display: submitClicked && !errorPresent ? "none" : "block" }}
-        />
+      {isSubmitVisible && !submitClicked && (
+        <div className="input-container">
+          <input
+            className="input"
+            id={inputId}
+            type="text"
+            placeholder={inputPlaceholder}
+            value={inputValue}
+            onChange={(e) => handleInputChange(e.target.value)}
+            style={{
+              display: submitClicked && !errorPresent ? "none" : "block",
+            }}
+          />
+          {searchResults.length > 0 && (
+            <ul className="movie-list">
+              {searchResults.map((movie) => (
+                <li
+                  key={movie.imdbID}
+                  onClick={() => handleMovieSelect(movie.Title)}
+                >
+                  {movie.Title} ({movie.Year})
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       )}
 
       {(!isSubmitVisible || !errorPresent) &&
