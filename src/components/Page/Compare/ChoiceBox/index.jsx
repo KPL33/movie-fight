@@ -104,7 +104,7 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
   return (
     <div className="choice-box">
       <Poster src={posterUrl || posterSrc} />
-      {isSubmitVisible && !submitClicked && (
+      {isSubmitVisible && (
         <div className="input-container">
           <input
             className="input"
@@ -114,7 +114,7 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
             value={inputValue}
             onChange={(e) => handleInputChange(e.target.value)}
             style={{
-              display: submitClicked && !errorPresent ? "none" : "block",
+              display: "block",
             }}
           />
           {searchResults.length > 0 && (
@@ -152,6 +152,7 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
         )}
     </div>
   );
+
 };
 
 ChoiceBox.propTypes = {
