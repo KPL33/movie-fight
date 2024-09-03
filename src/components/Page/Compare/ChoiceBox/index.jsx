@@ -25,6 +25,8 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
   const [movieName, setMovieName] = useState(null);
   const [rottenTomatoesScore, setRottenTomatoesScore] = useState(null);
   const [posterUrl, setPosterUrl] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
 
   const debouncedSearch = useRef(
     debounce(async (value) => {
@@ -76,13 +78,15 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
         value: movieTitle,
       });
 
-      // Clear search results after selection
+      // Set the selected movie and clear search results
+      setSelectedMovie(movieTitle); // <-- Set the selected movie
       setSearchResults([]);
       setInputValue(movieTitle);
     } catch (error) {
       console.error("Error fetching movie details:", error);
     }
   };
+
 
   const resetValues = () => {
     setInputValue("");
@@ -118,6 +122,7 @@ const ChoiceBox = ({ inputId, inputPlaceholder, posterSrc }) => {
               {searchResults.map((movie) => (
                 <li
                   key={movie.imdbID}
+                  className={selectedMovie === movie.Title ? "selected" : ""}
                   onClick={() => handleMovieSelect(movie.Title)}
                 >
                   {movie.Title} ({movie.Year})

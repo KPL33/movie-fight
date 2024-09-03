@@ -8,7 +8,6 @@
   background-color: var(--light);
   list-style: none;
   font-size: 1rem;
-  padding: 10px;
   border-radius: 0.25em;
   text-align: center;
   width: 100%;
@@ -19,7 +18,19 @@
 }
 
 .movie-list li {
-  margin: 15px 0;
+  margin: 5px 0;
+  padding: 10px 0;
+}
+
+.movie-list li:hover {
+  background-color: var(--veryDark);
+  color: var(--light);
+  cursor: pointer;
+}
+
+.movie-list li.selected {
+  background-color: var(--accent); /* Change this to your preferred color */
+  color: var(--veryDark); /* Adjust text color if needed */
 }
 
 ::placeholder {
